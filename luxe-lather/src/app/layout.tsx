@@ -1,5 +1,10 @@
 import './globals.css'
 
+export const metadata = {
+  title: "LuxLather",
+  description: "Freshness"
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -7,7 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main className='p-6'>
+         {children}
+        </main>
+      </body>
     </html>
   )
 }

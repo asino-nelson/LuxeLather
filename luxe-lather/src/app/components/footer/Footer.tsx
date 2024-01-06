@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
             <FooterList>
             <h3 className="font-bold text-base mb-2">Categories</h3>
-            <Link href="#">Soap</Link>
+            <Link href="#">Hand wash</Link>
             <Link href="#">Shower gel</Link>
             <Link href="#">Detergent</Link>
             <Link href="#">Disinfectant</Link>

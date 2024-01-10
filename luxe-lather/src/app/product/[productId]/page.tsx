@@ -1,9 +1,9 @@
 import Container from "@/app/components/Container"
 import ProductDetails from "./ProductDetails"
-import { products } from "@/app/utils/products"
+import { product } from "@/app/utils/product"
 
 interface IParams {
-    productId ?: string
+    productId ?: string;
 }
 
 const Product = ({params}: {params:IParams}) => {
@@ -13,8 +13,7 @@ const Product = ({params}: {params:IParams}) => {
   return (
     <div className="p-8">
       <Container>
-        <ProductDetails product={products} />
-        {/* create a product page in the utils folder and put that product with description */}
+        <ProductDetails product={product} />
       </Container>
     </div>
   )

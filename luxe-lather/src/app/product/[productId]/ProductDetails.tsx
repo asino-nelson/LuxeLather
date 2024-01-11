@@ -1,5 +1,6 @@
 "use client";
 
+import AddTocartBtn from "@/app/components/AddTocartBtn";
 import SetQuantity from "@/app/components/products/SetQuantity";
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
@@ -82,8 +83,11 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
              handleQtyIncrease={handleQtyIncrease}
             />
           </div>
-          <div>
-            ADD TO CART
+          <div className="max-w-[300px]">
+            <AddTocartBtn 
+              label="Add To Cart"
+              onClick={() => {}}
+            />
           </div>
           
         </div>

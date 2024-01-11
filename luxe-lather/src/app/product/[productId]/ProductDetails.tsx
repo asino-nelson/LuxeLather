@@ -1,7 +1,8 @@
 "use client";
 
+import SetQuantity from "@/app/components/products/SetQuantity";
 import { Rating } from "@mui/material";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 interface ProductDetailProps{
     product: any
@@ -40,11 +41,13 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
   )
 
   const productRating = product.reviews.reduce((acc: number, item:any) => item.rating + acc, 0) / product.reviews.length
+  const handleQtyIncrease = useCallback(()=>{},[])
+  const handleQtyDecrease = useCallback(()=>{},[])
 
   return (
   
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>{product.image}</div>
+        <div>{product.image[0]}</div>
         <div className="flex flex-col gap-2 text-sm">
           <h2 className="text-slate-700 text-2xl font-medium">
           {product.name}</h2>
@@ -59,7 +62,11 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
             {product.inStock ? "In Stock" : "Out of stock"}
           </div>
           <div>
-            Quantity
+            <SetQuantity
+             cartProduct={cartProduct}
+             handleQtyDecrease={handleQtyDecrease}
+             handleQtyIncrease={handleQtyIncrease}
+            />
           </div>
           <div>
             ADD TO CART

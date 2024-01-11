@@ -34,15 +34,29 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
       description: product.description,
       category: product.category,
       brand: product.brand,
-      selectedImg: {...product.image[0]},
+      selectedImg: {...product.image[2]},
       quantity: 1,
       price: product.price
     }
   )
 
   const productRating = product.reviews.reduce((acc: number, item:any) => item.rating + acc, 0) / product.reviews.length
-  const handleQtyIncrease = useCallback(()=>{},[])
-  const handleQtyDecrease = useCallback(()=>{},[])
+  const handleQtyIncrease = useCallback(()=>{
+    if (cartProduct.quantity === 99){
+      return;
+    }
+    setCartProduct((prev)=> {
+      return {...prev, quantity: ++prev.quantity}
+    })
+  },[cartProduct]);
+  const handleQtyDecrease = useCallback(()=>{
+    if (cartProduct.quantity === 1){
+      return;
+    }
+    setCartProduct((prev)=> {
+      return {...prev, quantity: --prev.quantity}
+    })
+  },[cartProduct]);
 
   return (
   

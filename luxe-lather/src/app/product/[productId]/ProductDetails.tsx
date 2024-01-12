@@ -1,6 +1,7 @@
 "use client";
 
 import AddTocartBtn from "@/app/components/AddTocartBtn";
+import ProductImage from "@/app/components/products/ProductImage";
 import SetQuantity from "@/app/components/products/SetQuantity";
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
@@ -15,16 +16,13 @@ export type CartProductType = {
   description: string,
   category: string,
   brand: string,
-  selectedImg: SelectedImgType,
+  image: string,
   quantity: number,
   price: number
 }
 
-export type SelectedImgType = {
-  color: string,
-  colorCode: string,
-  image: string
-}
+
+
 
 const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
 
@@ -35,7 +33,7 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
       description: product.description,
       category: product.category,
       brand: product.brand,
-      selectedImg: {...product.image[2]},
+      image:product.image,
       quantity: 1,
       price: product.price
     }
@@ -62,7 +60,7 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
   return (
   
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>{product.image[0]}</div>
+        <ProductImage cartProduct={cartProduct}/>
         <div className="flex flex-col gap-2 text-sm">
           <h2 className="text-slate-700 text-2xl font-medium">
           {product.name}</h2>

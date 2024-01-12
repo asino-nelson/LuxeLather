@@ -33,7 +33,7 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
       description: product.description,
       category: product.category,
       brand: product.brand,
-      image:product.image,
+      image: product.image,
       quantity: 1,
       price: product.price
     }
@@ -70,18 +70,18 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
              {product.reviews.length} reviews
             </div>
           </div>
-          <div className="text-justify mt-4">{product.description}</div>
+          <div className="text-justify mt-4 mb-4">{product.description}</div>
           <div className={product.inStock ? "text-green-500 font-semibold" : "text-rose-500 font-semibold"}>
             {product.inStock ? "In Stock" : "Out of stock"}
           </div>
-          <div>
+          <div className="mt-4">
             <SetQuantity
              cartProduct={cartProduct}
              handleQtyDecrease={handleQtyDecrease}
              handleQtyIncrease={handleQtyIncrease}
             />
           </div>
-          <div className="max-w-[300px]">
+          <div className="max-w-[300px] mt-4">
             <AddTocartBtn 
               label="Add To Cart"
               onClick={() => {}}

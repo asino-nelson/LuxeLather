@@ -8,26 +8,8 @@ export const product = {
     brand: "Apple",
     category: "Phone",
     inStock: true,
-    images: [
-      {
-        color: "Black",
-        colorCode: "#000000",
-        image:
-          "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20black.png?alt=media&token=8fe19551-173a-4550-9d02-20afffc79b12",
-      },
-      {
-        color: "Blue",
-        colorCode: " #0000FF",
-        image:
-          "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20blue.png?alt=media&token=ede757d2-b631-4451-b80c-123861f16c92",
-      },
-      {
-        color: "Red",
-        colorCode: "#FF0000",
-        image:
-          "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20red.png?alt=media&token=945e1ffb-953e-467a-8325-5a8fbbbf3153",
-      },
-    ],
+    image: "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2Fiphone%2012%20black.png?alt=media&token=8fe19551-173a-4550-9d02-20afffc79b12",
+    
     reviews: [
       {
         id: "6499b4887402b0efd394d8f3",

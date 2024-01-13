@@ -14,6 +14,12 @@ const Product = ({params}: {params:IParams}) => {
     <div className="p-8">
       <Container>
         <ProductDetails product={product} />
+        <div>
+          <div>ADD RATING</div>
+          <div>
+            list
+          </div>
+        </div>
       </Container>
     </div>
   )

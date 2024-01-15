@@ -19,7 +19,7 @@ export const CartContextProvider = (props:Props) => {
     }
 
     return <CartContext.Provider value={value} {...props}/>
-}
+};
 
 export const useCart = () =>{
     const context = useContext(CartContext)

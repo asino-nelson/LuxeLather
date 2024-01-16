@@ -3,6 +3,7 @@
 import AddTocartBtn from "@/app/components/AddTocartBtn";
 import ProductImage from "@/app/components/products/ProductImage";
 import SetQuantity from "@/app/components/products/SetQuantity";
+import { useCart } from "@/hooks/useCart";
 import { Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 
@@ -25,7 +26,7 @@ export type CartProductType = {
 
 
 const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
-
+  const {handleAddProductToCart, cartProducts} = useCart()
   const [cartProduct, setCartProduct] = useState<CartProductType>(
     {
       id: product.id,
@@ -39,7 +40,10 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
     }
   )
 
+  console.log(cartProducts)
+
   const productRating = product.reviews.reduce((acc: number, item:any) => item.rating + acc, 0) / product.reviews.length
+
   const handleQtyIncrease = useCallback(()=>{
     if (cartProduct.quantity === 99){
       return;
@@ -84,7 +88,7 @@ const ProductDetails:React.FC<ProductDetailProps> = ({ product }) => {
           <div className="max-w-[300px] mt-4">
             <AddTocartBtn 
               label="Add To Cart"
-              onClick={() => {}}
+              onClick={() => handleAddProductToCart(cartProduct)}
             />
           </div>
           

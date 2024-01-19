@@ -1,3 +1,4 @@
+
 import CartProvider from '@/providers/CartProvider';
 import Footer from './components/footer/Footer';
 import NavBar from './components/nav/NavBar';

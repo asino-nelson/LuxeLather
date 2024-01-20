@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Container from "../Container"
+import SearcBar from "./SearcBar"
 
 const NavBar = () => {
   return (
@@ -8,7 +9,7 @@ const NavBar = () => {
         <Container>
             <div className="flex items-center justify-between gap-3 md:gap-0">
             <Link href="/">LuxLather</Link>
-          <div className="hidden md:block">Search</div>
+          <div className="hidden md:block"> <SearcBar /> </div>
           <div className="flex items-center gap-8 md:gap-12">
             <div>Cart</div>
             <div>Profile</div>

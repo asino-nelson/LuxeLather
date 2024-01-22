@@ -1,6 +1,7 @@
 "use client"
 
 const SearcBar = () => {
+
   return (
     <div className="flex items-center">
       <input 

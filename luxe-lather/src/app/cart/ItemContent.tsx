@@ -33,7 +33,7 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
             </div>
         </div>
       </div>
-      <div>{formatPrice(item.price)}</div>
+      <div className="justify-self-center">{formatPrice(item.price)}</div>
       <div></div>
       <div></div>
     </div>

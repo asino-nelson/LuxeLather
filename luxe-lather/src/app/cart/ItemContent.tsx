@@ -6,6 +6,7 @@ import { formatPrice } from "../utils/formatPrice"
 import { truncateText } from "../utils/truncate"
 import Image from "next/image"
 import SetQuantity from "../components/products/SetQuantity"
+import { useCart } from "@/hooks/useCart"
 
 
 interface ItemContentProps{
@@ -13,6 +14,9 @@ interface ItemContentProps{
 }
 
 const ItemContent: React.FC<ItemContentProps> = ({item}) => {
+  
+  const {handleDeleteProductFromCart} = useCart()
+
   return (
     <div className="grid grid-cols-5 text-xs md:text-sm gap-4 border-t-2 border-slate-200 py-5 items-center">
       <div
@@ -28,7 +32,7 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
                 {truncateText(item.name)}
             </Link>
             <div className="w-[70px]">
-                <button onClick={()=>{}}>
+                <button onClick={()=>{handleDeleteProductFromCart(item)}}>
                     Trash icon
                 </button>
             </div>

@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 type CartContextType = {
     cartTotalQty: number,
     cartProducts: CartProductType[] | null,
-    handleAddProductToCart: (product: CartProductType) => void
+    handleAddProductToCart: (product: CartProductType) => void,
+    handleDeleteProductFromCart: (product: CartProductType) => void
 }
 
 export const CartContext = createContext<CartContextType | null>(null)
@@ -43,10 +44,29 @@ export const CartContextProvider = (props:Props) => {
         })
     }, [])
 
+    const handleDeleteProductFromCart = useCallback((product: CartProductType) => {
+        if (cartProducts){
+            const filteredProducts = cartProducts.filter
+            ((item)=>{
+                return item.id !=  product.id
+            })
+
+            setCartProducts(filteredProducts)
+
+            localStorage.setItem('luxeLatherCartItems', JSON.stringify(filteredProducts))
+
+            toast.success("Product removed from cart!")
+
+        }
+    }, [cartProducts])
+
+    
+
     const value = {
         cartTotalQty,
         cartProducts,
-        handleAddProductToCart
+        handleAddProductToCart,
+        handleDeleteProductFromCart
     }
 
     return <CartContext.Provider value={value} {...props}/>

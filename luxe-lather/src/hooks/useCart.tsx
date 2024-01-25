@@ -6,7 +6,8 @@ type CartContextType = {
     cartTotalQty: number,
     cartProducts: CartProductType[] | null,
     handleAddProductToCart: (product: CartProductType) => void,
-    handleDeleteProductFromCart: (product: CartProductType) => void
+    handleDeleteProductFromCart: (product: CartProductType) => void,
+    handleCartQtyIncrease: (product: CartProductType) => void
 }
 
 export const CartContext = createContext<CartContextType | null>(null)
@@ -55,18 +56,42 @@ export const CartContextProvider = (props:Props) => {
 
             localStorage.setItem('luxeLatherCartItems', JSON.stringify(filteredProducts))
 
-            toast.success("Product removed from cart!")
+            toast.success("Product removed from cart1!")
 
         }
     }, [cartProducts])
 
-    
+    const handleCartQtyIncrease = useCallback(
+        (product : CartProductType) => {
+            let updatedCart
+
+            if (product.quantity == 99){
+                return toast.error("Oops! Maximum reached");
+            }
+
+            if (cartProducts){
+                updatedCart = [...cartProducts]
+
+                const existingIndex = cartProducts.findIndex(
+                    (item) => item.id == product.id
+                )
+
+                if (existingIndex > -1){
+                    updatedCart[existingIndex].quantity = ++updatedCart[existingIndex].quantity
+                }
+
+                setCartProducts(updatedCart)
+                localStorage.setItem('luxeLatherCartItems', JSON.stringify(updatedCart))
+            }
+        }, [cartProducts]
+    )
 
     const value = {
         cartTotalQty,
         cartProducts,
         handleAddProductToCart,
-        handleDeleteProductFromCart
+        handleDeleteProductFromCart,
+        handleCartQtyIncrease
     }
 
     return <CartContext.Provider value={value} {...props}/>

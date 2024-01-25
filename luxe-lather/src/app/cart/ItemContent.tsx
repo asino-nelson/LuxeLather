@@ -7,6 +7,7 @@ import { truncateText } from "../utils/truncate"
 import Image from "next/image"
 import SetQuantity from "../components/products/SetQuantity"
 import { useCart } from "@/hooks/useCart"
+import { FaTrash } from "react-icons/fa"
 
 
 interface ItemContentProps{
@@ -33,7 +34,7 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
             </Link>
             <div className="w-[70px]">
                 <button onClick={()=>{handleDeleteProductFromCart(item)}}>
-                    Trash icon
+                    <FaTrash size={24}/>
                 </button>
             </div>
         </div>
@@ -43,7 +44,7 @@ const ItemContent: React.FC<ItemContentProps> = ({item}) => {
         <SetQuantity
             cartCounter={true}
             cartProduct={item}
-            handleQtyIncrease={()=>{}}
+            handleQtyIncrease={()=>{handleCartQtyIncrease(item)}}
             handleQtyDecrease={()=>{}}
         />
       </div>

@@ -5,10 +5,11 @@ import { MdArrowBack } from "react-icons/md"
 import Heading from "../components/Heading"
 import AddTocartBtn from "../components/AddTocartBtn"
 import ItemContent from "./ItemContent"
+import { formatPrice } from "../utils/formatPrice"
 
 const CartClient = () => {
 
-    const {cartProducts, handleClearCart} = useCart()
+    const {cartProducts, handleClearCart, cartTotalAmount} = useCart()
 
     if (!cartProducts || cartProducts.length === 0){
         return(
@@ -46,7 +47,7 @@ const CartClient = () => {
         <div className="flex flex-col gap-1 items-start">
             <div className="flex justify-between w-full text-base font-semibold">
                 <span>Subtotal</span>
-                <span>$1,000</span>
+                <span>{formatPrice(cartTotalAmount)}</span>
             </div>
             <AddTocartBtn label="Purchase " onClick={()=>{}}/>
         </div>
